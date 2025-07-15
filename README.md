@@ -1,6 +1,6 @@
 # 🔧 ADO.NET Generator Tool
 
-A powerful Windows Forms application that automatically generates **Data Access Layer (DAL)** and **Business Logic Layer (BLL)** code for your SQL Server database tables.
+A lightweight Windows Forms application that automatically generates **Data Access Layer (DAL)** and **Business Logic Layer (BLL)** code for your SQL Server database tables.
 
 ---
 
