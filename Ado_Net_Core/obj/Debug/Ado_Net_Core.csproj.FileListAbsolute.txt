@@ -1,0 +1,6 @@
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_Core\bin\Debug\Ado_Net_Core.dll
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_Core\bin\Debug\Ado_Net_Core.pdb
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_Core\obj\Debug\Ado_Net_Core.csproj.AssemblyReference.cache
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_Core\obj\Debug\Ado_Net_Core.csproj.CoreCompileInputs.cache
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_Core\obj\Debug\Ado_Net_Core.dll
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_Core\obj\Debug\Ado_Net_Core.pdb

@@ -1,0 +1,78 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Coding\\MyProjects\\Ado.Net Generator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|d:\\coding\\myprojects\\ado.net generator\\ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|solutionrelative:ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|D:\\Coding\\MyProjects\\Ado.Net Generator\\ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|solutionrelative:ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A9DD26D-1E84-4C65-AC3F-D5E26D6D0258}|Ado_Net_Core\\Ado_Net_Core.csproj|D:\\Coding\\MyProjects\\Ado.Net Generator\\ado_net_core\\clsdataaccesslayergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A9DD26D-1E84-4C65-AC3F-D5E26D6D0258}|Ado_Net_Core\\Ado_Net_Core.csproj|solutionrelative:ado_net_core\\clsdataaccesslayergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "clsDataAccessLayerGenerator.cs",
+              "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_Core\\clsDataAccessLayerGenerator.cs",
+              "RelativeDocumentMoniker": "Ado_Net_Core\\clsDataAccessLayerGenerator.cs",
+              "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_Core\\clsDataAccessLayerGenerator.cs",
+              "RelativeToolTip": "Ado_Net_Core\\clsDataAccessLayerGenerator.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAADgv+4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T22:35:00.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmGenerator.cs",
+              "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs",
+              "RelativeDocumentMoniker": "Ado_Net_UI\\frmGenerator.cs",
+              "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs*",
+              "RelativeToolTip": "Ado_Net_UI\\frmGenerator.cs*",
+              "ViewState": "AgIAANAAAAAAAAAAAAAiwOYAAACjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T12:33:49.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmGenerator.cs [Design]",
+              "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs",
+              "RelativeDocumentMoniker": "Ado_Net_UI\\frmGenerator.cs",
+              "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs [Design]*",
+              "RelativeToolTip": "Ado_Net_UI\\frmGenerator.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T12:33:47.123Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

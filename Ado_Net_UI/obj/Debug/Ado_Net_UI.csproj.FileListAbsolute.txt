@@ -1,0 +1,14 @@
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\bin\Debug\Ado_Net_UI.exe.config
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\bin\Debug\Ado_Net_UI.exe
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\bin\Debug\Ado_Net_UI.pdb
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\bin\Debug\Ado_Net_Core.dll
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\bin\Debug\Ado_Net_Core.pdb
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\obj\Debug\Ado_Net_UI.csproj.AssemblyReference.cache
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\obj\Debug\Ado_Net_UI.Properties.Resources.resources
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\obj\Debug\Ado_Net_UI.csproj.GenerateResource.cache
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\obj\Debug\Ado_Net_UI.csproj.CoreCompileInputs.cache
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\obj\Debug\Ado_Net_UI.csproj.Up2Date
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\obj\Debug\Ado_Net_UI.exe
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\obj\Debug\Ado_Net_UI.pdb
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\obj\Debug\Ado_Net_UI.exe.config
+D:\Coding\MyProjects\Ado.Net Generator\Ado_Net_UI\obj\Debug\Ado_Net_Core.frmGenerator.resources
