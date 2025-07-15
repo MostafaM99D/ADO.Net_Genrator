@@ -12,8 +12,6 @@ namespace Ado_Net_Core
         private static List<clsColumnInfo> _Columns;
         private static string _ClassName;
         private static string _TableName;
-        private static string _ServerName;
-        private static string _DatabaseName;
 
 
 
@@ -21,8 +19,6 @@ namespace Ado_Net_Core
         {
             _ClassName = ClassName;
             _TableName = TableName;
-            _ServerName = ServerName;
-            _DatabaseName = DatabaseName;
             sb = new StringBuilder();
             _Columns = clsDatabaseSettings.GetShcemaDetails(ServerName, DatabaseName, TableName);
             Initialize();
@@ -102,8 +98,8 @@ namespace Ado_Net_Core
 
         private static void GetAll()
         {
-            sb.AppendLine($"public static DataTable GetAll{_TableName}(){{" +
-                $"\n\t\t\treturn cls{NameFromTableName(_TableName)}Data.GetAll{NameFromTableName(_ClassName)}();");
+            sb.AppendLine($"public static DataTable GetAll{NameFromTableName(_TableName)}(){{" +
+                $"\n\t\t\treturn cls{NameFromTableName(_TableName)}Data.GetAll{NameFromTableName(_TableName)}Data();");
             sb.AppendLine($"}}");
         }
 

@@ -66,7 +66,7 @@ namespace Ado_Net_Core
 
         private static void GetAll()
         {
-            sb.AppendLine($"\t\tpublic static DataTable GetAll{NameFromTableName(_TableName)} () {{");
+            sb.AppendLine($"\t\tpublic static DataTable GetAll{NameFromTableName(_TableName)}Data () {{");
             sb.AppendLine($"\t\t\tDataTable dt = new DataTable();");
             sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString))");
             sb.AppendLine($"\t\t\t{{");
@@ -201,7 +201,7 @@ namespace Ado_Net_Core
             clsColumnInfo PkColumn = _GetPkColumn();
 
             string parameters = $"";
-            foreach (clsColumnInfo column in _Columns)
+            foreach (clsColumnInfo column in _Columns.Skip(1))
                 parameters += $" {column.DataType}{(column.IsNullable ? $"{((column.DataType != "string") ? "?" : "")}" : "")} {column.ColumnName}, ";
             parameters = parameters.Remove(parameters.Length - 2);
             sb.AppendLine($"\t\tpublic static int AddNew{NameFromTableName(_ClassName)}(" +

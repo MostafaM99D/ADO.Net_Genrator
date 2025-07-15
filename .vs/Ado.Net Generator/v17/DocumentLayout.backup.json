@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "D:\\Coding\\MyProjects\\Ado.Net Generator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|d:\\coding\\myprojects\\ado.net generator\\ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|solutionrelative:ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|d:\\coding\\myprojects\\ado.net generator\\ado_net_ui\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|solutionrelative:ado_net_ui\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|D:\\Coding\\MyProjects\\Ado.Net Generator\\ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|solutionrelative:ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|d:\\coding\\myprojects\\ado.net generator\\ado_net_ui\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|solutionrelative:ado_net_ui\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8A9DD26D-1E84-4C65-AC3F-D5E26D6D0258}|Ado_Net_Core\\Ado_Net_Core.csproj|D:\\Coding\\MyProjects\\Ado.Net Generator\\ado_net_core\\clsdataaccesslayergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8A9DD26D-1E84-4C65-AC3F-D5E26D6D0258}|Ado_Net_Core\\Ado_Net_Core.csproj|d:\\coding\\myprojects\\ado.net generator\\ado_net_core\\clsbuisnesslogiclayergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A9DD26D-1E84-4C65-AC3F-D5E26D6D0258}|Ado_Net_Core\\Ado_Net_Core.csproj|solutionrelative:ado_net_core\\clsbuisnesslogiclayergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A9DD26D-1E84-4C65-AC3F-D5E26D6D0258}|Ado_Net_Core\\Ado_Net_Core.csproj|d:\\coding\\myprojects\\ado.net generator\\ado_net_core\\clsdataaccesslayergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8A9DD26D-1E84-4C65-AC3F-D5E26D6D0258}|Ado_Net_Core\\Ado_Net_Core.csproj|solutionrelative:ado_net_core\\clsdataaccesslayergenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|d:\\coding\\myprojects\\ado.net generator\\ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B12928AE-15E3-4A9C-BE02-DC624F790267}|Ado_Net_UI\\Ado_Net_UI.csproj|solutionrelative:ado_net_ui\\frmgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +42,67 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmGenerator.cs [Design]",
+              "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs",
+              "RelativeDocumentMoniker": "Ado_Net_UI\\frmGenerator.cs",
+              "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs [Design]",
+              "RelativeToolTip": "Ado_Net_UI\\frmGenerator.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T09:02:56.93Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "clsBuisnessLogicLayerGenerator.cs",
+              "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_Core\\clsBuisnessLogicLayerGenerator.cs",
+              "RelativeDocumentMoniker": "Ado_Net_Core\\clsBuisnessLogicLayerGenerator.cs",
+              "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_Core\\clsBuisnessLogicLayerGenerator.cs",
+              "RelativeToolTip": "Ado_Net_Core\\clsBuisnessLogicLayerGenerator.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAmwGUAAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T02:42:05.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "clsDataAccessLayerGenerator.cs",
               "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_Core\\clsDataAccessLayerGenerator.cs",
               "RelativeDocumentMoniker": "Ado_Net_Core\\clsDataAccessLayerGenerator.cs",
               "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_Core\\clsDataAccessLayerGenerator.cs",
               "RelativeToolTip": "Ado_Net_Core\\clsDataAccessLayerGenerator.cs",
-              "ViewState": "AgIAAOIAAAAAAAAAAADgv+4AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAIwEQAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T22:35:00.736Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmGenerator.cs",
-              "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs",
-              "RelativeDocumentMoniker": "Ado_Net_UI\\frmGenerator.cs",
-              "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs*",
-              "RelativeToolTip": "Ado_Net_UI\\frmGenerator.cs*",
-              "ViewState": "AgIAANAAAAAAAAAAAAAiwOYAAACjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T12:33:49.102Z",
+              "WhenOpened": "2025-07-15T02:40:41.337Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmGenerator.cs [Design]",
-              "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs",
-              "RelativeDocumentMoniker": "Ado_Net_UI\\frmGenerator.cs",
-              "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\frmGenerator.cs [Design]*",
-              "RelativeToolTip": "Ado_Net_UI\\frmGenerator.cs [Design]*",
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\Class1.cs",
+              "RelativeDocumentMoniker": "Ado_Net_UI\\Class1.cs",
+              "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\Class1.cs*",
+              "RelativeToolTip": "Ado_Net_UI\\Class1.cs*",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwPkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T12:33:47.123Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-07-15T02:39:00.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Test.cs",
+              "DocumentMoniker": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\Test.cs",
+              "RelativeDocumentMoniker": "Ado_Net_UI\\Test.cs",
+              "ToolTip": "D:\\Coding\\MyProjects\\Ado.Net Generator\\Ado_Net_UI\\Test.cs*",
+              "RelativeToolTip": "Ado_Net_UI\\Test.cs*",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAgwGUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T02:38:23.757Z",
+              "EditorCaption": ""
             }
           ]
         }
