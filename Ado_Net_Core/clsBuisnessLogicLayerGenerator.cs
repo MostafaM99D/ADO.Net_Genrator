@@ -10,14 +10,14 @@ namespace Ado_Net_Core
     {
         private static StringBuilder sb;
         private static List<clsColumnInfo> _Columns;
-        private static string _ClassName;
+        private static string _SingleTableName;
         private static string _TableName;
 
 
 
-        public static string GenerateCode(string ServerName, string DatabaseName, string TableName, string ClassName)
+        public static string GenerateCode(string ServerName, string DatabaseName, string TableName, string SingleTableName)
         {
-            _ClassName = ClassName;
+            _SingleTableName = SingleTableName;
             _TableName = TableName;
             sb = new StringBuilder();
             _Columns = clsDatabaseSettings.GetShcemaDetails(ServerName, DatabaseName, TableName);
@@ -116,7 +116,7 @@ namespace Ado_Net_Core
             foreach (clsColumnInfo c in _Columns.Skip(1))
                 res += $"ref {c.ColumnName}, ";
 
-            sb.AppendLine($"\n\t\t\tif(!cls{NameFromTableName(_TableName)}Data.Get{NameFromTableName(_ClassName)}ByID({PkColumn.ColumnName}, {res.Remove(res.Length - 2)}))" +
+            sb.AppendLine($"\n\t\t\tif(!cls{NameFromTableName(_TableName)}Data.Get{NameFromTableName(_SingleTableName)}ByID({PkColumn.ColumnName}, {res.Remove(res.Length - 2)}))" +
                 $"\n\t\t\t\treturn null;\n" +
                 $"\t\t\telse\n");
             res = "";
@@ -135,7 +135,7 @@ namespace Ado_Net_Core
             string res = "";
             foreach (clsColumnInfo column in _Columns.Skip(1))
                 res += $"this.{column.ColumnName}, ";
-            sb.AppendLine($"this.{PkColumn.ColumnName} = cls{NameFromTableName(_TableName)}Data.AddNew{NameFromTableName(_ClassName)}({res.Remove(res.Length - 2)});");
+            sb.AppendLine($"this.{PkColumn.ColumnName} = cls{NameFromTableName(_TableName)}Data.AddNew{NameFromTableName(_SingleTableName)}({res.Remove(res.Length - 2)});");
             sb.AppendLine($"return {PkColumn.ColumnName}!= -1;\n");
             sb.AppendLine($"\n}}");
         }
@@ -147,7 +147,7 @@ namespace Ado_Net_Core
             string res = "";
             foreach (clsColumnInfo column in _Columns)
                 res += $"this.{column.ColumnName}, ";
-            sb.AppendLine($"return cls{NameFromTableName(_TableName)}Data.Update{NameFromTableName(_ClassName)}({res.Remove(res.Length - 2)});");
+            sb.AppendLine($"return cls{NameFromTableName(_TableName)}Data.Update{NameFromTableName(_SingleTableName)}({res.Remove(res.Length - 2)});");
             sb.AppendLine($"\n}}");
         }
         private static void Save()
@@ -159,7 +159,7 @@ namespace Ado_Net_Core
         {
             clsColumnInfo PkColumn = _GetPkColumn();
             sb.AppendLine($"public static bool DeleteByID({PkColumn.DataType} {PkColumn.ColumnName}){{");
-            sb.AppendLine($"return cls{NameFromTableName(_TableName)}Data.Delete{NameFromTableName(_ClassName)}({PkColumn.ColumnName});");
+            sb.AppendLine($"return cls{NameFromTableName(_TableName)}Data.Delete{NameFromTableName(_SingleTableName)}({PkColumn.ColumnName});");
             sb.AppendLine($"\n}}");
 
 

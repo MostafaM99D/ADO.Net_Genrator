@@ -13,7 +13,7 @@ namespace Ado_Net_Core
         private string _ServerName;
         private string _DatabaseName;
         private string _TableName;
-        private string _ClassName;
+        private string _SingleTableName;
         private bool _IsConnected;
         private List<clsColumnInfo> _ColumnInfo;
         private string _DALOutput;
@@ -72,6 +72,7 @@ namespace Ado_Net_Core
                     gbDbSettings.Enabled = true;
                     lblConnectedDatabase.Text = _DatabaseName;
                     _LoadTablesToComboBox();
+                    this.AcceptButton = btnNext;
                 }
                 else
                     _IsConnected = false;
@@ -156,6 +157,7 @@ namespace Ado_Net_Core
             gbGeneratingSettings.Enabled = true;
             btnGenerate.Enabled = true;
             lblSelectedTable.Text = cbTables.SelectedItem.ToString();
+            this.AcceptButton = btnGenerate;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -198,13 +200,13 @@ namespace Ado_Net_Core
                 MessageBox.Show("Table have not any Primary Key", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            _ClassName = txtClassName.Text;
-            if (!Regex.IsMatch(_ClassName, @"^[A-Za-z_][A-Za-z0-9_]*$"))
+            _SingleTableName = txtClassName.Text;
+            if (!Regex.IsMatch(_SingleTableName, @"^[A-Za-z_][A-Za-z0-9_]*$"))
             {
                 MessageBox.Show("Invalid class name format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!clsGlobal.IsValidString(_ClassName, "Class name connot be empty"))
+            if (!clsGlobal.IsValidString(_SingleTableName, "Class name connot be empty"))
                 return;
             if (!_IsConnected)
             {
@@ -218,9 +220,9 @@ namespace Ado_Net_Core
 
             try
             {
-                _DALOutput = clsDataAccessLayerGenerator.GenerateCode(_ServerName, _DatabaseName, _TableName, _ClassName);
+                _DALOutput = clsDataAccessLayerGenerator.GenerateCode(_ServerName, _DatabaseName, _TableName, _SingleTableName);
                 if (chkGenerateBLL.Checked)
-                    _BLLOutput = clsBuisnessLogicLayerGenerator.GenerateCode(_ServerName, _DatabaseName, _TableName, _ClassName);
+                    _BLLOutput = clsBuisnessLogicLayerGenerator.GenerateCode(_ServerName, _DatabaseName, _TableName, _SingleTableName);
 
             }
             catch (Exception ex)

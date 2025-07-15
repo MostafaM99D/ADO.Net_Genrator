@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbConnectionSettings = new System.Windows.Forms.GroupBox();
             this.cbDatabases = new System.Windows.Forms.ComboBox();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -252,16 +252,15 @@
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(389, 96);
+            this.label11.Location = new System.Drawing.Point(414, 98);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(394, 46);
+            this.label11.Size = new System.Drawing.Size(394, 45);
             this.label11.TabIndex = 13;
-            this.label11.Text = "Recommended : Singular form of the table name like (Person, Book, Employee, ..., " +
-    "etc) \r\n";
+            this.label11.Text = "Singular form of the table name like (Person, Book, Employee, ..., etc) \r\n";
             // 
             // txtClassName
             // 
-            this.txtClassName.Location = new System.Drawing.Point(199, 100);
+            this.txtClassName.Location = new System.Drawing.Point(222, 101);
             this.txtClassName.Name = "txtClassName";
             this.txtClassName.Size = new System.Drawing.Size(184, 31);
             this.txtClassName.TabIndex = 12;
@@ -269,7 +268,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(170, 103);
+            this.label6.Location = new System.Drawing.Point(195, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 23);
             this.label6.TabIndex = 11;
@@ -293,14 +292,14 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 103);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(127, 23);
+            this.label8.Size = new System.Drawing.Size(187, 23);
             this.label8.TabIndex = 10;
-            this.label8.Text = "Class Name ";
+            this.label8.Text = "Single Table Name";
             // 
             // lblSelectedTable
             // 
             this.lblSelectedTable.AutoSize = true;
-            this.lblSelectedTable.Location = new System.Drawing.Point(195, 56);
+            this.lblSelectedTable.Location = new System.Drawing.Point(218, 56);
             this.lblSelectedTable.Name = "lblSelectedTable";
             this.lblSelectedTable.Size = new System.Drawing.Size(50, 23);
             this.lblSelectedTable.TabIndex = 9;
@@ -309,7 +308,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(170, 56);
+            this.label12.Location = new System.Drawing.Point(193, 56);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(19, 23);
             this.label12.TabIndex = 8;
@@ -327,7 +326,7 @@
             // txtOutput
             // 
             this.txtOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOutput.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOutput.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOutput.Location = new System.Drawing.Point(842, 73);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
@@ -340,7 +339,7 @@
             // 
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerate.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.Location = new System.Drawing.Point(129, 764);
+            this.btnGenerate.Location = new System.Drawing.Point(171, 752);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(124, 45);
             this.btnGenerate.TabIndex = 7;
@@ -352,7 +351,7 @@
             // 
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(473, 764);
+            this.btnReset.Location = new System.Drawing.Point(515, 752);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(124, 45);
             this.btnReset.TabIndex = 9;
@@ -364,7 +363,7 @@
             // 
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopy.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Location = new System.Drawing.Point(305, 764);
+            this.btnCopy.Location = new System.Drawing.Point(343, 752);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(124, 45);
             this.btnCopy.TabIndex = 10;
@@ -400,14 +399,14 @@
             // 
             this.dgvColumnsInfo.AllowUserToAddRows = false;
             this.dgvColumnsInfo.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvColumnsInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvColumnsInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvColumnsInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvColumnsInfo.Location = new System.Drawing.Point(62, 440);
             this.dgvColumnsInfo.Name = "dgvColumnsInfo";
@@ -417,6 +416,7 @@
             // 
             // frmGenerator
             // 
+            this.AcceptButton = this.btnConnect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1440, 821);

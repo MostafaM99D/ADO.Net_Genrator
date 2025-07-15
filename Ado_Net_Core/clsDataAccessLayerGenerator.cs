@@ -11,14 +11,14 @@ namespace Ado_Net_Core
     {
         private static StringBuilder sb;
         private static List<clsColumnInfo> _Columns;
-        private static string _ClassName;
+        private static string _SingleTableName;
         private static string _TableName;
         private static string _ServerName;
         private static string _DatabaseName;
 
-        public static string GenerateCode(string ServerName, string DatabaseName, string TableName, string ClassName)
+        public static string GenerateCode(string ServerName, string DatabaseName, string TableName, string SingleTableName)
         {
-            _ClassName = ClassName;
+            _SingleTableName = SingleTableName;
             _TableName = TableName;
             _ServerName = ServerName;
             _DatabaseName = DatabaseName;
@@ -100,7 +100,7 @@ namespace Ado_Net_Core
             foreach (clsColumnInfo column in _Columns.Skip(1))
                 parameters += $"ref {column.DataType}{(column.IsNullable ? $"{((column.DataType != "string") ? "?" : "")}" : "")} {column.ColumnName}, ";
             parameters = parameters.Remove(parameters.Length - 2);
-            sb.AppendLine($"\t\tpublic static bool Get{NameFromTableName(_ClassName)}ByID (" +
+            sb.AppendLine($"\t\tpublic static bool Get{NameFromTableName(_SingleTableName)}ByID (" +
                 $"{parameters} ) {{\n\t\t\tbool Is_Found=false;\n");
             sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString)){{\n" +
                 $"\t\t\t\tstring query=\" select *from {_TableName} where {_Columns[0].ColumnName}=@{_Columns[0].ColumnName}; \";\n" +
@@ -204,7 +204,7 @@ namespace Ado_Net_Core
             foreach (clsColumnInfo column in _Columns.Skip(1))
                 parameters += $" {column.DataType}{(column.IsNullable ? $"{((column.DataType != "string") ? "?" : "")}" : "")} {column.ColumnName}, ";
             parameters = parameters.Remove(parameters.Length - 2);
-            sb.AppendLine($"\t\tpublic static int AddNew{NameFromTableName(_ClassName)}(" +
+            sb.AppendLine($"\t\tpublic static int AddNew{NameFromTableName(_SingleTableName)}(" +
             $"{parameters} ) {{\n\t\t\tint rows_affected=0;\n");
             sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString)){{\n" +
             $"\t\t\t\tstring query=\" insert into {_TableName}({_GetColumnsNameForUpdate()}) values ({_GetColumnsNameForQuery()});select SCOPE_IDENTITY(); \";\n" +
@@ -234,7 +234,7 @@ namespace Ado_Net_Core
             foreach (clsColumnInfo column in _Columns)
                 parameters += $" {column.DataType}{(column.IsNullable ? $"{((column.DataType != "string") ? "?" : "")}" : "")} {column.ColumnName}, ";
             parameters = parameters.Remove(parameters.Length - 2);
-            sb.AppendLine($"\t\tpublic static bool Update{NameFromTableName(_ClassName)}(" +
+            sb.AppendLine($"\t\tpublic static bool Update{NameFromTableName(_SingleTableName)}(" +
             $"{parameters} ) {{\n\t\t\tint rows_affected=0;\n");
             sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString)){{\n" +
             $"\t\t\t\tstring query=\"update {_TableName} set {_QueryForUpdating()} where {PkColumn.ColumnName}=@{PkColumn.ColumnName}; \";\n" +
@@ -258,7 +258,7 @@ namespace Ado_Net_Core
         private static void Delete()
         {
             clsColumnInfo PkColumn = _GetPkColumn();
-            sb.AppendLine($"\t\tpublic static bool Delete{NameFromTableName(_ClassName)}(" +
+            sb.AppendLine($"\t\tpublic static bool Delete{NameFromTableName(_SingleTableName)}(" +
            $"{PkColumn.DataType} {PkColumn.ColumnName} ) {{\n\t\t\tint rows_affected=0;\n");
             sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString)){{\n" +
             $"\t\t\t\tstring query=\"delete from {_TableName} where {PkColumn.ColumnName}=@{PkColumn.ColumnName}; \";\n" +
