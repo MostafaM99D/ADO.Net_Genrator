@@ -12,6 +12,7 @@ namespace Ado_Net_Core
         private static List<clsColumnInfo> _Columns;
         private static string _SingleTableName;
         private static string _TableName;
+        private static string _DatabaseName;
 
 
 
@@ -19,6 +20,7 @@ namespace Ado_Net_Core
         {
             _SingleTableName = SingleTableName;
             _TableName = TableName;
+            _DatabaseName = DatabaseName;
             sb = new StringBuilder();
             _Columns = clsDatabaseSettings.GetShcemaDetails(ServerName, DatabaseName, TableName);
             Initialize();
@@ -53,7 +55,7 @@ namespace Ado_Net_Core
             sb.AppendLine($"using System;\n");
             sb.AppendLine($"using System.Data;\n");
             sb.AppendLine($"using System.Data.SqlClient;\n");
-            sb.AppendLine($"using DAL;\n");
+            sb.AppendLine($"using {_DatabaseName}_DAL;\n");
             sb.AppendLine($"\nnamespace BLL{{\n");
             sb.AppendLine($"\npublic class cls{NameFromTableName(_TableName)}\n{{" +
                 $"  enum enMode {{ AddNew = 1, Update = 2 }};\r\n        private enMode _Mode;");
@@ -111,7 +113,7 @@ namespace Ado_Net_Core
             foreach (clsColumnInfo column in _Columns.Skip(1))
                 res += $"{column.DataType} {column.ColumnName} = default;\n";
 
-            sb.AppendLine($"\t\t\t{PkColumn.ColumnName}=-1;\n{res}");
+            sb.AppendLine($"\t\t\t\n{res}");
             res = "";
             foreach (clsColumnInfo c in _Columns.Skip(1))
                 res += $"ref {c.ColumnName}, ";

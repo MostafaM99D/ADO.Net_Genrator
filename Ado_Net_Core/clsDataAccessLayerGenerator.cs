@@ -16,6 +16,7 @@ namespace Ado_Net_Core
         private static string _ServerName;
         private static string _DatabaseName;
 
+        
         public static string GenerateCode(string ServerName, string DatabaseName, string TableName, string SingleTableName)
         {
             _SingleTableName = SingleTableName;
@@ -25,7 +26,6 @@ namespace Ado_Net_Core
             sb = new StringBuilder();
             _Columns = clsDatabaseSettings.GetShcemaDetails(ServerName, DatabaseName, TableName);
             Initialize();
-            _ConnectionString();
             GetAll();
             GetByID();
             AddNew();
@@ -54,21 +54,17 @@ namespace Ado_Net_Core
             sb.AppendLine($"using System;\n");
             sb.AppendLine($"using System.Data;\n");
             sb.AppendLine($"using System.Data.SqlClient;\n");
-            sb.AppendLine($"\nnamespace DAL{{\n");
+            sb.AppendLine($"\nnamespace {_DatabaseName}_DAL{{\n");
             sb.AppendLine($"\npublic class cls{NameFromTableName(_TableName)}Data\n{{");
         }
 
-        private static void _ConnectionString()
-        {
-            sb.AppendLine($"\t\t\tprivate static string _ConnectionString = \t" +
-            $"\"Server={_ServerName};Database={_DatabaseName};Integrated Security=True\";\n\n");
-        }
+    
 
         private static void GetAll()
         {
             sb.AppendLine($"\t\tpublic static DataTable GetAll{NameFromTableName(_TableName)}Data () {{");
             sb.AppendLine($"\t\t\tDataTable dt = new DataTable();");
-            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString))");
+            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))");
             sb.AppendLine($"\t\t\t{{");
             sb.AppendLine($"\t\t\t\tstring query = \"SELECT * FROM {_TableName} \";");
             sb.AppendLine($"\t\t\t\tusing (SqlCommand cmd = new SqlCommand(query, conn)) ");
@@ -84,6 +80,7 @@ namespace Ado_Net_Core
             sb.AppendLine($"\t\t\t\t\t}}");
             sb.AppendLine($"\t\t\t\t\tcatch(Exception ex)");
             sb.AppendLine($"\t\t\t\t\t{{");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n");
             sb.AppendLine($"\t\t\t\t\t\treturn null;");
             sb.AppendLine($"\t\t\t\t\t}}");
             sb.AppendLine($"\t\t\t\t}}");
@@ -102,7 +99,7 @@ namespace Ado_Net_Core
             parameters = parameters.Remove(parameters.Length - 2);
             sb.AppendLine($"\t\tpublic static bool Get{NameFromTableName(_SingleTableName)}ByID (" +
                 $"{parameters} ) {{\n\t\t\tbool Is_Found=false;\n");
-            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString)){{\n" +
+            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString)){{\n" +
                 $"\t\t\t\tstring query=\" select *from {_TableName} where {_Columns[0].ColumnName}=@{_Columns[0].ColumnName}; \";\n" +
                 $"\t\t\t");
             sb.AppendLine($"\t\t\t\tusing (SqlCommand cmd = new SqlCommand(query, conn)) {{\n" +
@@ -123,8 +120,10 @@ namespace Ado_Net_Core
             sb.AppendLine($"{FillParameters}\n");
             sb.AppendLine($"\n}}");
             sb.AppendLine($"\n}}");
-            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n" +
-                $"\t\t\t\t\t\tIs_Found=false;\n");
+            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n" +
+
+            $"\t\t\t\t\t\tIs_Found=false;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"\nreturn Is_Found;\n}}\n\n");
             sb.AppendLine($"}}\n\n");
@@ -189,13 +188,13 @@ namespace Ado_Net_Core
         private static string _QueryForUpdating()
         {
             string res = "";
-            foreach(clsColumnInfo col in _Columns.Skip(1))
+            foreach (clsColumnInfo col in _Columns.Skip(1))
             {
                 res += $"{col.ColumnName} = @{col.ColumnName}, ";
             }
-            return res.Remove(res.Length-2);
+            return res.Remove(res.Length - 2);
         }
-       
+
         private static void AddNew()
         {
             clsColumnInfo PkColumn = _GetPkColumn();
@@ -206,8 +205,8 @@ namespace Ado_Net_Core
             parameters = parameters.Remove(parameters.Length - 2);
             sb.AppendLine($"\t\tpublic static int AddNew{NameFromTableName(_SingleTableName)}(" +
             $"{parameters} ) {{\n\t\t\tint rows_affected=0;\n");
-            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString)){{\n" +
-            $"\t\t\t\tstring query=\" insert into {_TableName}({_GetColumnsNameForUpdate()}) values ({_GetColumnsNameForQuery()});select SCOPE_IDENTITY(); \";\n" +
+            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString)){{\n" +
+            $"\t\t\t\tstring query=\" insert into {_TableName}({_GetColumnsNameForUpdate(true)}) values ({_GetColumnsNameForQuery(true)});select SCOPE_IDENTITY(); \";\n" +
             $"\t\t\t");
             sb.AppendLine($"\t\t\t\tusing (SqlCommand cmd = new SqlCommand(query, conn)) {{\n" +
                 $"\t\t\t\t{_CmdParameters(true)}");
@@ -217,8 +216,9 @@ namespace Ado_Net_Core
                 $"   object obj = cmd.ExecuteScalar();\r\n\r\n         " +
                 $"       if (obj != null && int.TryParse(Convert.ToString(obj), out int r))\r\n       " +
                 $"             rows_affected = r;");
-            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n" +
-                $"\t\t\t\t\t\nrows_affected=-1;\n");
+            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n" +
+$"\t\t\t\t\t\nrows_affected=-1;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
@@ -236,7 +236,7 @@ namespace Ado_Net_Core
             parameters = parameters.Remove(parameters.Length - 2);
             sb.AppendLine($"\t\tpublic static bool Update{NameFromTableName(_SingleTableName)}(" +
             $"{parameters} ) {{\n\t\t\tint rows_affected=0;\n");
-            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString)){{\n" +
+            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString)){{\n" +
             $"\t\t\t\tstring query=\"update {_TableName} set {_QueryForUpdating()} where {PkColumn.ColumnName}=@{PkColumn.ColumnName}; \";\n" +
             $"\t\t\t");
             sb.AppendLine($"\t\t\t\tusing (SqlCommand cmd = new SqlCommand(query, conn)) {{\n" +
@@ -245,8 +245,9 @@ namespace Ado_Net_Core
 
             sb.AppendLine($"  conn.Open();\r\n            " +
                 $"    rows_affected = cmd.ExecuteNonQuery();");
-            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n" +
-                $"\t\t\t\t\t\nrows_affected=-1;\n");
+            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n"+
+            $"\t\t\t\t\t\nrows_affected=-1;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
@@ -260,7 +261,7 @@ namespace Ado_Net_Core
             clsColumnInfo PkColumn = _GetPkColumn();
             sb.AppendLine($"\t\tpublic static bool Delete{NameFromTableName(_SingleTableName)}(" +
            $"{PkColumn.DataType} {PkColumn.ColumnName} ) {{\n\t\t\tint rows_affected=0;\n");
-            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString)){{\n" +
+            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString)){{\n" +
             $"\t\t\t\tstring query=\"delete from {_TableName} where {PkColumn.ColumnName}=@{PkColumn.ColumnName}; \";\n" +
             $"\t\t\t");
             sb.AppendLine($"\t\t\t\tusing (SqlCommand cmd = new SqlCommand(query, conn)) {{\n" +
@@ -269,8 +270,9 @@ namespace Ado_Net_Core
 
             sb.AppendLine($"  conn.Open();\r\n            " +
                 $"    rows_affected = cmd.ExecuteNonQuery();");
-            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n" +
-                $"\t\t\t\t\t\nrows_affected=-1;\n");
+            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n"+
+            $"\t\t\t\t\t\nrows_affected=-1;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
@@ -283,7 +285,7 @@ namespace Ado_Net_Core
             clsColumnInfo PkColumn = _GetPkColumn();
             sb.AppendLine($"\t\tpublic static bool IsExist(" +
            $"{PkColumn.DataType} {PkColumn.ColumnName} ) {{\n\t\t\tbool IsFound=false;\n");
-            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(_ConnectionString)){{\n" +
+            sb.AppendLine($"\t\t\tusing (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString)){{\n" +
             $"\t\t\t\tstring query=\"select found=1 from {_TableName} where {PkColumn.ColumnName}=@{PkColumn.ColumnName}; \";\n" +
             $"\t\t\t");
             sb.AppendLine($"\t\t\t\tusing (SqlCommand cmd = new SqlCommand(query, conn)) {{\n" +
@@ -294,8 +296,9 @@ namespace Ado_Net_Core
                 $"     object obj = cmd.ExecuteScalar();\r\n           " +
                 $"     if (obj != null)\r\n              " +
                 $"      IsFound = true;");
-            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n" +
-                $"\t\t\t\t\t\nIsFound=false;\n");
+            sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n"+
+            $"\t\t\t\t\t\nIsFound=false;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");

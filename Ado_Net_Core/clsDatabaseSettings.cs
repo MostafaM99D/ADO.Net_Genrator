@@ -12,7 +12,7 @@ namespace Ado_Net_Core
         {
             return $"Data Source={ServerName};Initial Catalog={DatabaseName};Integrated Security=True;";
         }
-        public static bool ConnectedToDatabase(string ServerName, string DatabaseName)
+        public static bool ConnectedToDatabase(string ServerName, string DatabaseName,ref string ConnectionString)
         {
             bool isConnected = false;
             using (SqlConnection conn = new SqlConnection(GetConnectionString(ServerName, DatabaseName)))
@@ -20,7 +20,8 @@ namespace Ado_Net_Core
                 try
                 {
                     conn.Open();
-                    MessageBox.Show("Connection Succefully", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ConnectionString=clsGenerateConnectionString.GenerateConnectionString(ServerName, DatabaseName);
+                    MessageBox.Show("Connection Succefully and Connection String Generated Successfully.", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     isConnected = true;
                 }
                 catch (Exception ex)

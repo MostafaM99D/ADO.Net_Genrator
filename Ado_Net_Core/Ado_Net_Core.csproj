@@ -47,6 +47,7 @@
     <Compile Include="clsColumnInfo.cs" />
     <Compile Include="clsDataAccessLayerGenerator.cs" />
     <Compile Include="clsDatabaseSettings.cs" />
+    <Compile Include="clsGenerateConnectionString.cs" />
     <Compile Include="clsGlobal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

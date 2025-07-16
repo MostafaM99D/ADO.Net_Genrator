@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbConnectionSettings = new System.Windows.Forms.GroupBox();
             this.cbDatabases = new System.Windows.Forms.ComboBox();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -47,7 +47,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.gbGeneratingSettings = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtClassName = new System.Windows.Forms.TextBox();
+            this.txtSingleTableName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.chkGenerateBLL = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@
             this.btnShawDAL = new System.Windows.Forms.Button();
             this.btnShawBLL = new System.Windows.Forms.Button();
             this.dgvColumnsInfo = new System.Windows.Forms.DataGridView();
+            this.btnChangeTable = new System.Windows.Forms.Button();
             this.gbConnectionSettings.SuspendLayout();
             this.gbDbSettings.SuspendLayout();
             this.gbGeneratingSettings.SuspendLayout();
@@ -98,7 +99,7 @@
             this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConnect.Location = new System.Drawing.Point(117, 156);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(124, 45);
+            this.btnConnect.Size = new System.Drawing.Size(193, 45);
             this.btnConnect.TabIndex = 6;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -171,7 +172,7 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Location = new System.Drawing.Point(121, 156);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(124, 45);
+            this.btnNext.Size = new System.Drawing.Size(193, 45);
             this.btnNext.TabIndex = 7;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -234,7 +235,7 @@
             // gbGeneratingSettings
             // 
             this.gbGeneratingSettings.Controls.Add(this.label11);
-            this.gbGeneratingSettings.Controls.Add(this.txtClassName);
+            this.gbGeneratingSettings.Controls.Add(this.txtSingleTableName);
             this.gbGeneratingSettings.Controls.Add(this.label6);
             this.gbGeneratingSettings.Controls.Add(this.chkGenerateBLL);
             this.gbGeneratingSettings.Controls.Add(this.label8);
@@ -258,12 +259,12 @@
             this.label11.TabIndex = 13;
             this.label11.Text = "Singular form of the table name like (Person, Book, Employee, ..., etc) \r\n";
             // 
-            // txtClassName
+            // txtSingleTableName
             // 
-            this.txtClassName.Location = new System.Drawing.Point(222, 101);
-            this.txtClassName.Name = "txtClassName";
-            this.txtClassName.Size = new System.Drawing.Size(184, 31);
-            this.txtClassName.TabIndex = 12;
+            this.txtSingleTableName.Location = new System.Drawing.Point(222, 101);
+            this.txtSingleTableName.Name = "txtSingleTableName";
+            this.txtSingleTableName.Size = new System.Drawing.Size(184, 31);
+            this.txtSingleTableName.TabIndex = 12;
             // 
             // label6
             // 
@@ -339,9 +340,9 @@
             // 
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerate.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.Location = new System.Drawing.Point(171, 752);
+            this.btnGenerate.Location = new System.Drawing.Point(25, 748);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(124, 45);
+            this.btnGenerate.Size = new System.Drawing.Size(193, 45);
             this.btnGenerate.TabIndex = 7;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
@@ -351,9 +352,9 @@
             // 
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(515, 752);
+            this.btnReset.Location = new System.Drawing.Point(626, 748);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(124, 45);
+            this.btnReset.Size = new System.Drawing.Size(193, 45);
             this.btnReset.TabIndex = 9;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -363,9 +364,9 @@
             // 
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCopy.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCopy.Location = new System.Drawing.Point(343, 752);
+            this.btnCopy.Location = new System.Drawing.Point(224, 748);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(124, 45);
+            this.btnCopy.Size = new System.Drawing.Size(193, 45);
             this.btnCopy.TabIndex = 10;
             this.btnCopy.Text = "Copy";
             this.btnCopy.UseVisualStyleBackColor = true;
@@ -399,14 +400,14 @@
             // 
             this.dgvColumnsInfo.AllowUserToAddRows = false;
             this.dgvColumnsInfo.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvColumnsInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvColumnsInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvColumnsInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvColumnsInfo.Location = new System.Drawing.Point(62, 440);
             this.dgvColumnsInfo.Name = "dgvColumnsInfo";
@@ -414,12 +415,25 @@
             this.dgvColumnsInfo.Size = new System.Drawing.Size(713, 283);
             this.dgvColumnsInfo.TabIndex = 14;
             // 
+            // btnChangeTable
+            // 
+            this.btnChangeTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeTable.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeTable.Location = new System.Drawing.Point(423, 748);
+            this.btnChangeTable.Name = "btnChangeTable";
+            this.btnChangeTable.Size = new System.Drawing.Size(193, 45);
+            this.btnChangeTable.TabIndex = 15;
+            this.btnChangeTable.Text = "Change Table";
+            this.btnChangeTable.UseVisualStyleBackColor = true;
+            this.btnChangeTable.Click += new System.EventHandler(this.btnChangeTable_Click);
+            // 
             // frmGenerator
             // 
             this.AcceptButton = this.btnConnect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1440, 821);
+            this.Controls.Add(this.btnChangeTable);
             this.Controls.Add(this.dgvColumnsInfo);
             this.Controls.Add(this.btnShawBLL);
             this.Controls.Add(this.btnShawDAL);
@@ -475,11 +489,12 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.TextBox txtClassName;
+        private System.Windows.Forms.TextBox txtSingleTableName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbDatabases;
         private System.Windows.Forms.DataGridView dgvColumnsInfo;
+        private System.Windows.Forms.Button btnChangeTable;
     }
 }

@@ -64,8 +64,8 @@ namespace Ado_Net_Core
 
             try
             {
-
-                if (clsDatabaseSettings.ConnectedToDatabase(_ServerName, _DatabaseName))
+                string conStr = "";
+                if (clsDatabaseSettings.ConnectedToDatabase(_ServerName, _DatabaseName,ref conStr))
                 {
                     _IsConnected = true;
                     gbConnectionSettings.Enabled = false;
@@ -73,6 +73,8 @@ namespace Ado_Net_Core
                     lblConnectedDatabase.Text = _DatabaseName;
                     _LoadTablesToComboBox();
                     this.AcceptButton = btnNext;
+                    txtOutput.Text = conStr;
+                    btnCopy.Enabled = true;
                 }
                 else
                     _IsConnected = false;
@@ -89,9 +91,11 @@ namespace Ado_Net_Core
         private void frmGenerator_Load(object sender, EventArgs e)
         {
             _LoadDatabasesToComboBox();
+            btnReset.Enabled = false;
             cbDatabases.Select();
             btnShawBLL.Enabled = false;
             btnShawDAL.Enabled = false;
+            btnChangeTable.Enabled = false;
             gbDbSettings.Enabled = false;
             gbGeneratingSettings.Enabled = false;
             btnGenerate.Enabled = false;
@@ -152,18 +156,21 @@ namespace Ado_Net_Core
                 _dgvDesign();
             }
 
-            txtClassName.Select();
+            txtSingleTableName.Select();
             gbDbSettings.Enabled = false;
             gbGeneratingSettings.Enabled = true;
             btnGenerate.Enabled = true;
             lblSelectedTable.Text = cbTables.SelectedItem.ToString();
             this.AcceptButton = btnGenerate;
+            btnChangeTable.Enabled = true;
+            btnReset.Enabled = true;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
 
             _IsConnected = false;
+            btnChangeTable.Enabled = false;
             dgvColumnsInfo.DataSource = null;
             cbDatabases.SelectedItem = null;
             cbTables.SelectedItem = null;
@@ -176,7 +183,7 @@ namespace Ado_Net_Core
             btnGenerate.Enabled = false;
             btnCopy.Enabled = false;
             gbConnectionSettings.Enabled = true;
-            txtClassName.Text = "";
+            txtSingleTableName.Text = "";
             cbDatabases.Items.Clear();
             cbTables.Items.Clear();
             txtOutput.Clear();
@@ -200,7 +207,7 @@ namespace Ado_Net_Core
                 MessageBox.Show("Table have not any Primary Key", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            _SingleTableName = txtClassName.Text;
+            _SingleTableName = txtSingleTableName.Text;
             if (!Regex.IsMatch(_SingleTableName, @"^[A-Za-z_][A-Za-z0-9_]*$"))
             {
                 MessageBox.Show("Invalid class name format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -216,8 +223,6 @@ namespace Ado_Net_Core
             btnCopy.Enabled = true;
             btnShawBLL.Enabled = true;
             btnShawDAL.Enabled = true;
-
-
             try
             {
                 _DALOutput = clsDataAccessLayerGenerator.GenerateCode(_ServerName, _DatabaseName, _TableName, _SingleTableName);
@@ -252,6 +257,13 @@ namespace Ado_Net_Core
         {
             Clipboard.SetText(txtOutput.Text);
             MessageBox.Show("Code copied to clipboard!", "Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnChangeTable_Click(object sender, EventArgs e)
+        {
+            gbDbSettings.Enabled = true;
+            txtSingleTableName.Text ="";
+            gbGeneratingSettings.Enabled = false;
         }
     }
 }
