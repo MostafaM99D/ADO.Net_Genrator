@@ -24,7 +24,7 @@ namespace Ado_Net_Core
             sb.AppendLine($"using System;\n");
             sb.AppendLine($"using System.Data;\n");
             sb.AppendLine($"using System.Data.SqlClient;\n");
-            sb.AppendLine($"\npublic class clsDataAccessSetting\n{{");
+            sb.AppendLine($"\npublic class clsDataAccessSettings\n{{");
         }
 
         public static string GenerateConnectionString(string servername,string databaseName)
@@ -39,7 +39,6 @@ namespace Ado_Net_Core
         }
         private static void UnInitialize()
         {
-            sb.AppendLine($"\n\n}}");
             sb.AppendLine($"\n\n}}");
         }
 

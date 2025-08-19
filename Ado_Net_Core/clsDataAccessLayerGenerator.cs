@@ -80,8 +80,8 @@ namespace Ado_Net_Core
             sb.AppendLine($"\t\t\t\t\t}}");
             sb.AppendLine($"\t\t\t\t\tcatch(Exception ex)");
             sb.AppendLine($"\t\t\t\t\t{{");
-            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n");
-            sb.AppendLine($"\t\t\t\t\t\treturn null;");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error\", ex);\n");
+            sb.AppendLine($"\t\t\t\t\t\t//return null;");
             sb.AppendLine($"\t\t\t\t\t}}");
             sb.AppendLine($"\t\t\t\t}}");
             sb.AppendLine($"\t\t\t}}");
@@ -121,9 +121,9 @@ namespace Ado_Net_Core
             sb.AppendLine($"\n}}");
             sb.AppendLine($"\n}}");
             sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
-            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n" +
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error.\", ex);\n" +
 
-            $"\t\t\t\t\t\tIs_Found=false;\n");
+            $"\t\t\t\t\t\t//Is_Found=false;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"\nreturn Is_Found;\n}}\n\n");
             sb.AppendLine($"}}\n\n");
@@ -217,8 +217,8 @@ namespace Ado_Net_Core
                 $"       if (obj != null && int.TryParse(Convert.ToString(obj), out int r))\r\n       " +
                 $"             rows_affected = r;");
             sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
-            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n" +
-$"\t\t\t\t\t\nrows_affected=-1;\n");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Erro.\", ex);\n" +
+$"\t\t\t\t\t\n//rows_affected=-1;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
@@ -246,8 +246,8 @@ $"\t\t\t\t\t\nrows_affected=-1;\n");
             sb.AppendLine($"  conn.Open();\r\n            " +
                 $"    rows_affected = cmd.ExecuteNonQuery();");
             sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
-            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n"+
-            $"\t\t\t\t\t\nrows_affected=-1;\n");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error.\", ex);\n"+
+            $"\t\t\t\t\t\n//rows_affected=-1;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
@@ -271,8 +271,8 @@ $"\t\t\t\t\t\nrows_affected=-1;\n");
             sb.AppendLine($"  conn.Open();\r\n            " +
                 $"    rows_affected = cmd.ExecuteNonQuery();");
             sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
-            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n"+
-            $"\t\t\t\t\t\nrows_affected=-1;\n");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error.\", ex);\n"+
+            $"\t\t\t\t\t//rows_affected=-1;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
@@ -297,8 +297,8 @@ $"\t\t\t\t\t\nrows_affected=-1;\n");
                 $"     if (obj != null)\r\n              " +
                 $"      IsFound = true;");
             sb.AppendLine($"\n\t\t\t\t}}catch(Exception ex){{\n");
-            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error retrieving user data.\", ex);\n"+
-            $"\t\t\t\t\t\nIsFound=false;\n");
+            sb.AppendLine($"\t\t\t\t\tthrow new Exception(\"Error.\", ex);\n"+
+            $"\t\t\t\t\t\n//IsFound=false;\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");
             sb.AppendLine($"}}\n\n");

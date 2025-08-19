@@ -21,7 +21,8 @@ namespace Ado_Net_Core
                 {
                     conn.Open();
                     ConnectionString=clsGenerateConnectionString.GenerateConnectionString(ServerName, DatabaseName);
-                    MessageBox.Show("Connection Succefully and Connection String Generated Successfully.", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Connection Succefully and Connection String Generated Successfully." +
+                        "Please Add clsDataAccessSettings In Your Project", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     isConnected = true;
                 }
                 catch (Exception ex)

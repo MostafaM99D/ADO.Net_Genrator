@@ -157,6 +157,7 @@ namespace Ado_Net_Core
             }
 
             txtSingleTableName.Select();
+            txtOutput.Text = "";
             gbDbSettings.Enabled = false;
             gbGeneratingSettings.Enabled = true;
             btnGenerate.Enabled = true;
@@ -256,14 +257,17 @@ namespace Ado_Net_Core
         private void btnCopy_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(txtOutput.Text);
-            MessageBox.Show("Code copied to clipboard!", "Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          //  MessageBox.Show("Code copied to clipboard!", "Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnChangeTable_Click(object sender, EventArgs e)
         {
+            lblSelectedTable.Text = "????";
+            txtOutput.Text = "";
             gbDbSettings.Enabled = true;
             txtSingleTableName.Text ="";
             gbGeneratingSettings.Enabled = false;
+            dgvColumnsInfo.DataSource = null;
         }
     }
 }
